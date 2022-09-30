@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Pokemon Patterns
 
-Things you may want to cover:
+Pokemon Patterns is an investment-time project to help me become more confident with using coding design patterns. 
 
-* Ruby version
+Contrary to best practice I will be specifically designing towards patterns instead of allowing them to manifest organically.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+At it's core, this app will create Pokemons (original 150 only!!) and allow them to evolve to reach their end-state.
