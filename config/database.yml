@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: pokemon_patterns_development
+test:
+  <<: *default
+  database: pokemon_patterns_test
+production:
+  <<: *default
+  database: pokemon_patterns_production
+  username: pokemon_patterns
+  password: <%= ENV["POKEMON_PATTERNS_DATABASE_PASSWORD"] %>
