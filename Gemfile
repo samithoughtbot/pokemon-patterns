@@ -16,6 +16,11 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
+group :test do
+  gem 'capybara'
+  gem 'shoulda-matchers', '~> 5.0'
+end
+
 group :development do
   gem "web-console"
 end
