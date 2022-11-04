@@ -1,7 +1,13 @@
-All Pokemons
-
+All Pokemons 
+<br>
+<br>
 
 <% @pokemons.each do |pokemon| %>
-  <%= pokemon.name %>
-  <%= pokemon.kind %>  
+  <b>Name:</b> <%= pokemon.name %>
+  <br>
+  <b>Kind:</b> <%= pokemon.kind %>
+  <br>
+  <br>
 <% end %>
+
+<%= link_to "Create new pokemon", new_pokemon_path %>

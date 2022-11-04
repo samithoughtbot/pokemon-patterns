@@ -10,15 +10,18 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.1.2'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry', '~> 0.13.1'
 end
 
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'formulaic'
 end
 
 group :development do
