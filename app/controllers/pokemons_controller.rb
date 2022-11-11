@@ -4,13 +4,13 @@ class PokemonsController < ApplicationController
   end
 
   def new
-    @pokemon = Pokemon.new
+    @pokemon_form = Pokemons::CreatePokemonForm.new
   end
 
   def create
-    @form = Pokemons::CreatePokemonForm.new(pokemon_params)
+    @pokemon_form = Pokemons::CreatePokemonForm.new(pokemon_params)
 
-    if @form.save
+    if @pokemon_form.save
       redirect_to pokemons_path, notice: "Pokemon successfully created"
     else
       render 'new'
@@ -20,6 +20,6 @@ class PokemonsController < ApplicationController
   private
   
   def pokemon_params
-    params.require(:pokemon).permit(:name, :kind)
+    params.require(:pokemons_create_pokemon_form).permit(:name, :kind)
   end
 end

@@ -1,10 +1,14 @@
 class Pokemons::CreatePokemonForm
-  def initialize(params)
-    @params = params
-  end
+  include ActiveModel::Model
+
+  attr_accessor :name, :kind
+
+  validates :name, :kind, presence: true
 
   def save
-    pokemon = Pokemon.new(@params)
+    return false if invalid?
+    
+    pokemon = Pokemon.new(name: name, kind: kind)
     pokemon.save!
   end
 end
