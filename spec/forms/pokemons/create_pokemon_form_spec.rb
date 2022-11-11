@@ -1,6 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Pokemons::CreatePokemonForm do
+RSpec.describe Pokemons::CreatePokemonForm, type: :model do
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:kind) }
+  end
+
   describe '#save' do
     it 'saves a pokemon to the database' do
       params = { name: "Charizard", kind: "Fire" }

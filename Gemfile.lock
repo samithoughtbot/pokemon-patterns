@@ -97,6 +97,8 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    i18n-debug (1.2.0)
+      i18n (< 2)
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -225,6 +227,7 @@ DEPENDENCIES
   capybara
   debug
   formulaic
+  i18n-debug
   importmap-rails
   pg (~> 1.1)
   pry (~> 0.13.1)
