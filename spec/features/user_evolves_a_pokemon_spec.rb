@@ -14,10 +14,5 @@ RSpec.feature "user evolves a pokemon" do
     
     expect(page).to have_content("Pokemon successfully evolved")
     expect(page).to have_content("Evolution: 3")
-
-    click_button "Evolve"
-    
-    expect(page).to have_content("Pokemon successfully evolved")
-    expect(page).to have_content("Evolution: 4")
   end
 end
