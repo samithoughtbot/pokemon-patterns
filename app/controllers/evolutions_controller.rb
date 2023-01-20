@@ -6,7 +6,7 @@ class EvolutionsController < ApplicationController
     if evolution_form.save
       redirect_to pokemons_path, notice: "Pokemon successfully evolved"
     else
-      redirect_to pokemons_path, alert: "Something went wrong"
+      redirect_to pokemons_path, alert: evolution_form.errors.full_messages
     end
   end
 end
