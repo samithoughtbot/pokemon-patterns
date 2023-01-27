@@ -1,2 +1,2 @@
-class Pokemon < ApplicationRecord
+class Pokemon < OriginalPokemon
 end
