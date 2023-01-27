@@ -1,4 +1,6 @@
-class OriginalPokemon
+class OriginalPokemon < ApplicationRecord
+  self.abstract_class = true
+
   NAMES = [
       "Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard",
       "Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree",
@@ -24,4 +26,8 @@ class OriginalPokemon
       "Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres",
       "Dratini","Dragonair","Dragonite","Mewtwo","Mew"
   ].freeze
+
+  def is_original_150?
+    NAMES.include?(name)
+  end
 end
