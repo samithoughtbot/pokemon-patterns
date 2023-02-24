@@ -2,16 +2,21 @@ All Pokemons
 <br>
 <br>
 
-<% @pokemons.each do |pokemon| %>
-  <b>Name:</b> <%= pokemon.name %>
-  <br>
-  <b>Kind:</b> <%= pokemon.kind %>
-  <br>
-  <b>Evolution:</b> <%= pokemon.evolution %>
-  <br>
-  <%= button_to "Evolve", pokemon_evolutions_path(pokemon) %>
-  <br> 
-  <br>
+<% if @pokemons.present? %>
+  <% @pokemons.each do |pokemon| %>
+    <b>Name:</b> <%= pokemon.name %>
+    <br>
+    <b>Kind:</b> <%= pokemon.kind %>
+    <br>
+    <b>Evolution:</b> <%= pokemon.evolution %>
+    <br>
+    <%= button_to "Evolve", pokemon_evolutions_path(pokemon) %>
+    <%= button_to "Delete", pokemon_path(pokemon.id), method: :delete %>
+    <br> 
+    <br>
+  <% end %>
+<% else %>
+  <p>No pokemon available</p>
 <% end %>
 
 <%= link_to "Create new pokemon", new_pokemon_path %>

@@ -17,6 +17,16 @@ class PokemonsController < ApplicationController
     end
   end
 
+  def destroy
+    @pokemon = Pokemon.find(params[:id])
+    if @pokemon.present?
+      @pokemon.destroy
+      redirect_to root_path
+    else
+      flash[:notice] = "No pokemon available"
+    end
+  end
+
   private
   
   def pokemon_params
