@@ -88,4 +88,8 @@ class OriginalPokemon < ApplicationRecord
   def evolution_stage
     POKEDEX.map{ |h| h.key(name)}.compact.first
   end
+
+  def evolves_into
+    POKEDEX.find{|h| h[evolution_stage] == name}[evolution_stage+1]
+  end
 end

@@ -10,7 +10,9 @@ class Pokemons::EvolvePokemonForm
   def save
     return false if invalid?
 
-    @pokemon.increment(:evolution).save
+    @pokemon.increment(:evolution)
+    @pokemon.name = @pokemon.evolves_into
+    @pokemon.save!
   end
 
   private
