@@ -9,10 +9,12 @@ RSpec.feature "user evolves a pokemon" do
     
     expect(page).to have_content("Pokemon successfully evolved")
     expect(page).to have_content("Evolution: 2")
+    expect(page).to have_content("Name: Charmeleon")
 
     click_button "Evolve"
     
     expect(page).to have_content("Pokemon successfully evolved")
     expect(page).to have_content("Evolution: 3")
+    expect(page).to have_content("Name: Charizard")
   end
 end

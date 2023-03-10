@@ -17,11 +17,13 @@ RSpec.describe Pokemons::EvolvePokemonForm do
   describe '#save' do
     it 'evolves a pokemon' do
       pokemon = Pokemon.create(name: "Charmander", kind: "Fire", evolution: 1)
+      allow(pokemon).to receive(:evolves_into).and_return("Charmeleon")
       evolve_pokemon_form = Pokemons::EvolvePokemonForm.new(pokemon)
 
       evolve_pokemon_form.save
 
       expect(pokemon.reload.evolution).to eq(2)
+      expect(pokemon.reload.name).to eq("Charmeleon")
     end
   end
 end

@@ -29,4 +29,15 @@ RSpec.describe OriginalPokemon do
       expect(pokemon.evolution_stage).to eq 2
     end
   end
+
+  describe '#evolves_into' do
+    it 'returns the name of the pokemon that the given pokemon evolves into' do
+      stub_const("OriginalPokemon::POKEDEX", [{1 => "Charmander", 2 => "Charmeleon" }])
+      pokemon = Pokemon.new(name: "Charmander", kind: "Fire")
+
+      result = pokemon.evolves_into
+      
+      expect(result).to eq "Charmeleon"
+    end
+  end
 end
