@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "user views a list of pokemon" do
   scenario "shows a list of pokemon" do
-    first_pokemon = Pokemon.create(name: "Charmander", kind: "Fire", evolution: 1)
-    second_pokemon = Pokemon.create(name: "Bulbasaur", kind: "Grass", evolution: 1)
+    first_pokemon = Pokemon.create(name: "Charmander", kind: "Fire")
+    second_pokemon = Pokemon.create(name: "Bulbasaur", kind: "Grass")
 
     visit pokemons_path
 
@@ -12,6 +12,5 @@ RSpec.feature "user views a list of pokemon" do
     expect(page).to have_content("Name: Bulbasaur")
     expect(page).to have_content("Kind: Fire")
     expect(page).to have_content("Kind: Grass")
-    expect(page).to have_content("Evolution: 1").twice
   end
 end
