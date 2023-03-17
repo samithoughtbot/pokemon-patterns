@@ -10,7 +10,6 @@ class Pokemons::EvolvePokemonForm
   def save
     return false if invalid?
 
-    @pokemon.increment(:evolution)
     @pokemon.name = @pokemon.evolves_into
     @pokemon.save!
   end
@@ -19,7 +18,7 @@ class Pokemons::EvolvePokemonForm
 
   def reached_evolution_limit
     if @pokemon.reached_final_stage?
-      errors.add(:evolution, "this pokemon has reached their evolution limit")
+      errors.add(:base, "this pokemon has reached their evolution limit")
     end
   end
 end
