@@ -40,4 +40,27 @@ RSpec.describe OriginalPokemon do
       expect(result).to eq "Charmeleon"
     end
   end
+
+  describe '#reached_final_stage?' do
+    context 'when the pokemon has reached its final evolution stage' do
+      it 'returns true' do
+        stub_const("OriginalPokemon::POKEDEX", [{1 => "Charmander", 2 => "Charmeleon" }])
+        pokemon = Pokemon.new(name: "Charmeleon", kind: "Fire")
+
+        result = pokemon.reached_final_stage?
+      
+        expect(result).to eq true
+      end
+    end
+    context 'when the pokemon has not reached its final evolution stage' do
+      it 'returns false' do
+        stub_const("OriginalPokemon::POKEDEX", [{1 => "Charmander", 2 => "Charmeleon" }])
+        pokemon = Pokemon.new(name: "Charmander", kind: "Fire")
+
+        result = pokemon.reached_final_stage?
+      
+        expect(result).to eq false
+      end
+    end
+  end
 end
