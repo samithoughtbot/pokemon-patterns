@@ -18,7 +18,7 @@ class Pokemons::EvolvePokemonForm
   private
 
   def reached_evolution_limit
-    if @pokemon.evolution >= 3
+    if @pokemon.reached_final_stage?
       errors.add(:evolution, "this pokemon has reached their evolution limit")
     end
   end

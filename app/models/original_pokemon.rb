@@ -92,4 +92,8 @@ class OriginalPokemon < ApplicationRecord
   def evolves_into
     POKEDEX.find{|h| h[evolution_stage] == name}[evolution_stage+1]
   end
+
+  def reached_final_stage?
+    !evolves_into
+  end
 end
