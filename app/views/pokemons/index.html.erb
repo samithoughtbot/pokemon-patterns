@@ -7,7 +7,7 @@ All Pokemons
   <br>
   <b>Kind:</b> <%= pokemon.kind %>
   <br>
-  <%= button_to "Evolve", pokemon_evolutions_path(pokemon) %>
+  <%= render(EvolveButtonComponent.new(pokemon: pokemon)) %>
   <br> 
   <br>
 <% end %>

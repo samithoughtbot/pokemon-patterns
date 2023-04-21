@@ -11,6 +11,7 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'simple_form'
+gem 'view_component'
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.1.2'
