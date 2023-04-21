@@ -7,6 +7,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rails'
+require "view_component/test_helpers"
+require "capybara/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -70,4 +72,10 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
 end
