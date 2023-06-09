@@ -1,4 +1,4 @@
-All Pokemons 
+All Pokemons
 <br>
 <br>
 
@@ -8,7 +8,8 @@ All Pokemons
   <b>Kind:</b> <%= pokemon.kind %>
   <br>
   <%= render(EvolveButtonComponent.new(pokemon: pokemon)) %>
-  <br> 
+  <br>
+  <%= button_to 'Delete Pokemon', { action: 'destroy', id: pokemon.id }, method: :delete %>
   <br>
 <% end %>
 

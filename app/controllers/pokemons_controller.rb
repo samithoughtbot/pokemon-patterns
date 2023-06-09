@@ -17,8 +17,13 @@ class PokemonsController < ApplicationController
     end
   end
 
+  def destroy
+    Pokemon.destroy(params[:id])
+    redirect_to pokemons_path
+  end
+
   private
-  
+
   def pokemon_params
     params.require(:pokemons_create_pokemon_form).permit(:name, :kind)
   end
