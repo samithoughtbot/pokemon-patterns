@@ -1,14 +1,14 @@
-All Pokemons 
+All Pokemons
 <br>
 <br>
 
 <% @pokemons.each do |pokemon| %>
-  <b>Name:</b> <%= pokemon.name %>
+  <b>Name:</b> <%= pokemon.uppercase_name %>
   <br>
   <b>Kind:</b> <%= pokemon.kind %>
   <br>
   <%= render(EvolveButtonComponent.new(pokemon: pokemon)) %>
-  <br> 
+  <br>
   <br>
 <% end %>
 
