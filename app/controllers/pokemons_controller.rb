@@ -1,8 +1,7 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all.order(:name)
-    # @pokemons = PresenterGenerator.generate(active_record_collection)
-    # returns an array of presenter objects for the given collection
+    pokemons = Pokemon.all.order(:name)
+    @pokemons = PokemonPresenterFactory.build(pokemons)
   end
 
   def new
