@@ -187,6 +187,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.1)
+    rspec_junit_formatter (0.6.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
     simple_form (5.1.0)
@@ -238,6 +240,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rspec-rails (~> 5.1.2)
+  rspec_junit_formatter
   shoulda-matchers (~> 5.0)
   simple_form
   sprockets-rails

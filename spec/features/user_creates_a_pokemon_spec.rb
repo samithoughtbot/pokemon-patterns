@@ -11,10 +11,10 @@ RSpec.feature "user creates a pokemon" do
       name: "Charmander",
       kind: "Fire"
     )
-    
+
     expect(page).to have_content("Pokemon successfully created")
     expect(page).to have_content("All Pokemons")
-    expect(page).to have_content("Charmander")
+    expect(page).to have_content("CHARMANDER")
     expect(page).to have_content("Fire")
   end
 end
