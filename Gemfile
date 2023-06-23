@@ -23,6 +23,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'formulaic'
+  gem "rspec_junit_formatter", require: false
 end
 
 group :development do

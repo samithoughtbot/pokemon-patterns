@@ -8,8 +8,8 @@ RSpec.feature "user views a list of pokemon" do
     visit pokemons_path
 
     expect(page).to have_content("All Pokemons")
-    expect(page).to have_content("Name: Charmander")
-    expect(page).to have_content("Name: Bulbasaur")
+    expect(page).to have_content("Name: CHARMANDER")
+    expect(page).to have_content("Name: BULBASAUR")
     expect(page).to have_content("Kind: Fire")
     expect(page).to have_content("Kind: Grass")
   end
