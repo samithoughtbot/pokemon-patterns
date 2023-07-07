@@ -8,6 +8,15 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
+  lint:
+    docker:
+      - image: cimg/ruby:3.0.1
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Linter
+          command: bundle exec rake standard
   test:
     docker:
       - image: cimg/ruby:3.0.1
@@ -39,4 +48,5 @@ workflows:
   build_and_test:
     jobs:
       - build
+      - lint
       - test

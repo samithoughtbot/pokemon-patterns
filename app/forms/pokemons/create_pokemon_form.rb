@@ -7,18 +7,18 @@ class Pokemons::CreatePokemonForm
   validate :is_original_150?
   validate :is_at_stage_one_of_evolution?
 
-  def initialize(params={})
+  def initialize(params = {})
     super(params)
     @pokemon = Pokemon.new(name: name, kind: kind)
   end
-  
+
   def save
     return false if invalid?
-    
+
     pokemon.save!
   end
 
-  private 
+  private
 
   def is_original_150?
     unless pokemon.is_original_150?
@@ -31,5 +31,4 @@ class Pokemons::CreatePokemonForm
       errors.add(:name, "you can only create a pokemon at stage 1 of evolution")
     end
   end
-
 end

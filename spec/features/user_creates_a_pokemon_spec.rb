@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user creates a pokemon" do
   scenario "adds a new pokemon to the index" do
