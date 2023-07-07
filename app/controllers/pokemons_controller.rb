@@ -14,7 +14,7 @@ class PokemonsController < ApplicationController
     if @pokemon_form.save
       redirect_to pokemons_path, notice: "Pokemon successfully created"
     else
-      render 'new'
+      render "new"
     end
   end
 

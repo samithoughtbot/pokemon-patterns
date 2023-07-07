@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe PokemonPresenter do
-  describe '#uppercase_name' do
-    it 'converts the name to uppercase' do
+  describe "#uppercase_name" do
+    it "converts the name to uppercase" do
       pokemon = instance_double(Pokemon, name: "Mew")
       pokemon_presenter = PokemonPresenter.new(pokemon: pokemon)
 
@@ -11,5 +11,4 @@ RSpec.describe PokemonPresenter do
       expect(result).to eq "MEW"
     end
   end
-
 end
