@@ -2,15 +2,20 @@ require "rails_helper"
 
 RSpec.feature "user views a list of pokemon" do
   scenario "shows a list of pokemon" do
-    _first_pokemon = Pokemon.create(name: "Charmander", kind: "Fire")
-    _second_pokemon = Pokemon.create(name: "Bulbasaur", kind: "Grass")
+    Pokemon.create(name: "Charmander", kind: "Fire")
+    Pokemon.create(name: "Bulbasaur", kind: "Grass")
+    pokemon_index_page = Page::PokemonIndexPage.new
 
-    visit pokemons_path
+    pokemon_index_page.visit_page
 
-    expect(page).to have_content("All Pokemons")
-    expect(page).to have_content("Name: CHARMANDER")
-    expect(page).to have_content("Name: BULBASAUR")
-    expect(page).to have_content("Kind: Fire")
-    expect(page).to have_content("Kind: Grass")
+    expect(pokemon_index_page).to be_visible
+    expect(pokemon_index_page).to have_displayed_pokemon(
+      name: "CHARMANDER",
+      kind: "Fire"
+    )
+    expect(pokemon_index_page).to have_displayed_pokemon(
+      name: "BULBASAUR",
+      kind: "Fire"
+    )
   end
 end

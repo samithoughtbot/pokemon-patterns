@@ -2,17 +2,25 @@ require "rails_helper"
 
 RSpec.feature "user evolves a pokemon" do
   scenario "evolves a pokemon every time the user clicks the evolve button" do
-    _first_pokemon = Pokemon.create(name: "Charmander", kind: "Fire")
-    visit pokemons_path
+    Pokemon.create(name: "Charmander", kind: "Fire")
+    pokemon_index_page = Page::PokemonIndexPage.new
 
-    click_button "Evolve"
+    pokemon_index_page.visit_page
 
-    expect(page).to have_content("Pokemon successfully evolved")
-    expect(page).to have_content("Name: CHARMELEON")
+    pokemon_index_page.click_evolve
 
-    click_button "Evolve"
+    expect(pokemon_index_page).to be_successfully_evolved
+    expect(pokemon_index_page).to have_displayed_pokemon(
+      name: "CHARMELEON",
+      kind: "Fire"
+    )
 
-    expect(page).to have_content("Pokemon successfully evolved")
-    expect(page).to have_content("Name: CHARIZARD")
+    pokemon_index_page.click_evolve
+
+    expect(pokemon_index_page).to be_successfully_evolved
+    expect(pokemon_index_page).to have_displayed_pokemon(
+      name: "CHARIZARD",
+      kind: "Fire"
+    )
   end
 end
