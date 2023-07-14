@@ -2,19 +2,19 @@ require "rails_helper"
 
 RSpec.feature "user creates a pokemon" do
   scenario "adds a new pokemon to the index" do
-    visit pokemons_path
-    click_link "Create new pokemon"
+    pokemon_new_page = Page::PokemonNewPage.new
+    pokemon_index_page = Page::PokemonIndexPage.new
+    pokemon_new_page.navigate_to
 
-    fill_form_and_submit(
-      :pokemon,
-      :new,
+    pokemon_new_page.submit_valid_form_data(
       name: "Charmander",
       kind: "Fire"
     )
 
-    expect(page).to have_content("Pokemon successfully created")
-    expect(page).to have_content("All Pokemons")
-    expect(page).to have_content("CHARMANDER")
-    expect(page).to have_content("Fire")
+    expect(pokemon_index_page).to be_successfully_created
+    expect(pokemon_index_page).to have_displayed_pokemon(
+      name: "CHARMANDER",
+      kind: "Fire"
+    )
   end
 end
