@@ -9,8 +9,10 @@ require "rspec/rails"
 require "capybara/rails"
 require "view_component/test_helpers"
 require "capybara/rspec"
+require "support/factory_bot"
+require "support/database_cleaner"
 
-Dir[Rails.root.join("spec/features/support/pages/*.rb")].sort.each { |f| require f }
+Dir[Rails.root.join("spec/support/features/*.rb")].sort.each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

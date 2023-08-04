@@ -12,12 +12,14 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 gem "simple_form"
 gem "view_component"
+gem "clearance"
 
 group :development, :test do
   gem "rspec-rails", "~> 5.1.2"
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "pry", "~> 0.13.1"
   gem "standard"
+  gem "factory_bot_rails"
 end
 
 group :test do
@@ -25,6 +27,7 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
   gem "formulaic"
   gem "rspec_junit_formatter", require: false
+  gem "database_cleaner-active_record"
 end
 
 group :development do
