@@ -43,6 +43,8 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
@@ -57,4 +59,6 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  config.middleware.use Clearance::BackDoor
 end
